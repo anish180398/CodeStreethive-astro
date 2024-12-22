@@ -9,7 +9,6 @@ import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
-import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
 import heroImage from "@images/hero-image.avif";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
@@ -31,12 +30,12 @@ const avatarSrcs: Array<string> = [
   
 
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
+    title=`IDEAS THAT PROVOKE YOUR <span
+        class="text-yellow-500 dark:text-yellow-400">COMPETITION</span>`
+    subTitle=`Crafting Brands, Designing Products, Building Apps—Your Full-Service Partner for Digital Success.`
+    primaryBtn="Look what we do"
+    primaryBtnURL="/services"
+    secondaryBtn="Contact us"
     secondaryBtnURL="/contact"
     withReview={true}
     avatars={avatarSrcs}
@@ -47,24 +46,24 @@ const avatarSrcs: Array<string> = [
     alt="Stack of ScrewFast product boxes containing assorted hardware tools"
   />
 
-  <ClientsSection
+  <!-- <ClientsSection
     title="Trusted by Industry Leaders"
     subTitle="Experience the reliability chosen by industry giants."
-  />
+  /> -->
 
   <FeaturesGeneral
     title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
+    subTitle="We offer innovative digital services but first and foremost, we believe that building a committed partnership with you first is vital in driving your business to fundamentally advance in this digital universe"
     src={featureImage}
-    alt="ScrewFast products in floating boxes"
+    alt="Code Street Hive"
     features={features}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Specialized in <span class="text-yellow-500 dark:text-yellow-400">New and Next</span>.`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Branding and Strategy",
         content:
           "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
         svg: "tools",
@@ -73,28 +72,35 @@ const avatarSrcs: Array<string> = [
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
-        content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
-        svg: "dashboard",
-        src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
-        second: true,
-      },
-      {
-        heading: "Robust Features",
+        heading: "Full Stack Development",
         content:
           "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
         svg: "house",
         src: construction,
         alt: "Gray metal building frame near tower crane during daytime",
       },
+      {
+        heading: "Digital Transformation",
+        content:
+          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+        svg: "house",
+        src: construction,
+        alt: "Gray metal building frame near tower crane during daytime",
+      },
+      {
+        heading: "Digital Marketing",
+        content:
+          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+        svg: "house",
+        src: construction,
+        alt: "Gray metal building frame near tower crane during daytime",
+      }
     ]}
   />
 
   <TestimonialsSection
     title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
+    subTitle="At CodeStreetHive, we ensure a swift start with the development aligning to your vision."
     ;
     testimonials={[
       {
