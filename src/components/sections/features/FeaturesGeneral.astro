@@ -3,7 +3,7 @@
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-
+import styles from "../../../assets/styles/ShakeAnimation.module.css"
 interface Feature {
   heading: string;
   content: string;
@@ -22,20 +22,30 @@ const { title, subTitle, src, alt, features } = Astro.props;
 ---
 
 <section
-  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
->
+  class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
   <!-- Block to display the feature image -->
   <div class="relative mb-6 overflow-hidden md:mb-8">
     {
       src && alt && (
-        <Image
-          src={src}
-          alt={alt}
-          class="h-full w-full object-cover object-center"
-          draggable={"false"}
-          format={"avif"}
-          loading={"eager"}
-        />
+        <div class="flex w-full items-center ">
+          {" "}
+          <Image
+            src={src}
+            alt={alt}
+            class={`h-full w-1/2 object-cover object-center ${styles["shake-up-down"]}`}
+            draggable={"false"}
+            format={"png"}
+            loading={"eager"}
+          />
+          <div class="w-1/2 text-neutral-800 dark:text-neutral-200" >
+            <h2 class="uppercase text-7xl font-medium tracking-wider leading-12">
+              See in <span class="text-yellow-400">Vision</span> & Talk in <span class="text-orange-300">results</span>
+            </h2>
+            <p class="my-5 tracking-normal text-xl">
+              Perfect over done. Curiosity over routine. Visions over strategy. Simplicity over special effects. fans over target groups. Less over more. Value over price. Long-lasting over short-hyped. Time-efficiency over bla bla. Partner over supplier. Make over talk.
+            </p>
+             </div>
+        </div>
       )
     }
   </div>
@@ -46,9 +56,8 @@ const { title, subTitle, src, alt, features } = Astro.props;
     <div class="lg:col-span-1">
       <!-- Rendering title -->
       <h2
-        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl"
-      >
-        {title}
+        class="text-balance text-2xl font-bold text-neutral-800 dark:text-neutral-200 md:text-3xl">
+        <Fragment set:html={title} />
       </h2>
       <!-- Rendering subtitle -->
       {
@@ -64,12 +73,13 @@ const { title, subTitle, src, alt, features } = Astro.props;
     <div class="lg:col-span-2">
       <div class="grid gap-8 sm:grid-cols-2 md:gap-12">
         <!-- Injecting IconBlock components with different properties -->
-        { features &&
-          features.map((feature) => (
-            <IconBlock heading={feature.heading} content={feature.content}>
-              <Icon name={feature.svg} />
-            </IconBlock>
-          ))
+        {
+          features &&
+            features.map((feature) => (
+              <IconBlock heading={feature.heading} content={feature.content}>
+                <Icon name={feature.svg} />
+              </IconBlock>
+            ))
         }
       </div>
     </div>

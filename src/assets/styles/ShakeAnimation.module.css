@@ -1,0 +1,13 @@
+@keyframes shake-up-down {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .shake-up-down {
+    animation: shake-up-down 3s infinite ease-in-out;
+  }
+  

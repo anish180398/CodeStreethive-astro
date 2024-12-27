@@ -9,14 +9,15 @@ import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
 import PricingSection from "@components/sections/pricing/PricingSection.astro";
 import FAQ from "@components/sections/misc/FAQ.astro";
-import heroImage from "@images/hero-image.avif";
+import heroImage from "@images/hero-image.png";
 import faqs from "@data/faqs.json";
 import features from "@data/features.json";
 import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
-import construction from "@images/construction-image.avif";
-import tools from "@images/automated-tools.avif";
-import dashboard from "@images/dashboard-image.avif";
+import featureImage from "@images/features-image.png";
+import branding from '@images/branding.png'
+import fullstack from '@images/fullstack.png'
+import digital from '@images/digital.png'
+import marketing from '@images/marketing.png'
 
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
@@ -52,7 +53,7 @@ const avatarSrcs: Array<string> = [
   /> -->
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
+    title=`Achieving what matters most to <span class="text-yellow-500 dark:text-yellow-400">you</span>`
     subTitle="We offer innovative digital services but first and foremost, we believe that building a committed partnership with you first is vital in driving your business to fundamentally advance in this digital universe"
     src={featureImage}
     alt="Code Street Hive"
@@ -67,7 +68,7 @@ const avatarSrcs: Array<string> = [
         content:
           "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
         svg: "tools",
-        src: tools,
+        src: branding,
         alt: "Yellow and black heavy equipment on brown grass field",
         first: true,
       },
@@ -76,7 +77,7 @@ const avatarSrcs: Array<string> = [
         content:
           "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
         svg: "house",
-        src: construction,
+        src: fullstack,
         alt: "Gray metal building frame near tower crane during daytime",
       },
       {
@@ -84,7 +85,7 @@ const avatarSrcs: Array<string> = [
         content:
           "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
         svg: "house",
-        src: construction,
+        src: digital,
         alt: "Gray metal building frame near tower crane during daytime",
       },
       {
@@ -92,7 +93,7 @@ const avatarSrcs: Array<string> = [
         content:
           "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
         svg: "house",
-        src: construction,
+        src: marketing,
         alt: "Gray metal building frame near tower crane during daytime",
       }
     ]}
@@ -105,23 +106,23 @@ const avatarSrcs: Array<string> = [
     testimonials={[
       {
         content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
+          "CodeStreetHive dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in building an MVP!",
+        author: "",
+        role: "",
         avatarSrc:
           "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
       },
     ]}
     statistics={[
       {
-        count: "70k+",
+        count: "30+",
         description:
-          "customers equipped — from DIY to major construction firms",
+          "customers transformed — from vision to reality",
       },
       {
         count: "35%",
         description:
-          "uptick in project efficiency with ScrewFast tools and services",
+          "uptick in project efficiency with our services",
       },
       {
         count: "15.3%",
@@ -130,18 +131,18 @@ const avatarSrcs: Array<string> = [
       },
       {
         count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        description: "quick to market using fail fast approach",
       },
     ]}
   />
 
-  <PricingSection pricing={pricing} />
+  <!-- <PricingSection pricing={pricing} /> -->
 
   <FAQ title="Frequently<br />asked questions" faqs={faqs} />
 
   <HeroSectionAlt
     title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
+    subTitle="Two quick questions - do you trust your instincts, and are as bold with your vision as we are? So what are you waiting for ???"
+    url="/contact"
   />
 </MainLayout>

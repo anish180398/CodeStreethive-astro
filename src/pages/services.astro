@@ -21,6 +21,8 @@ interface Article {
   isRightSection: boolean;
   title: string;
   subTitle: string;
+  content?: string,
+  bullets?:string[],
   btnExists?: boolean;
   btnTitle?: string;
   btnURL?: string;
@@ -36,9 +38,10 @@ interface Article {
 const articles: Article[] = [
   {
     isRightSection: true,
-    title: "Delivering Expert Guidance",
+    title: "Strategy",
     subTitle:
-      "Embarking on a construction project can be overwhelming. With our professional consultation services, we guide you through every stage, ensuring you make informed decisions. Whether you are a DIY enthusiast or a skilled contractor, our experts are on hand to offer tailored advice on product selection, project scope, and compliance with local regulations.",
+      "We have the ideas & know-how to transform your business. Using our unique perspective on various market sectors we are able to advise you on the most effective strategies for your business",
+    bullets:["360 Digital Strategy", "Brand Strategy","Market & Competition Analysis","SEO & Content Strategy"],
     single: false,
     imgOne: blueprints,
     imgOneAlt: "Blueprints and digital tablet with construction plans.",
@@ -47,20 +50,20 @@ const articles: Article[] = [
   },
   {
     isRightSection: false,
-    title: "Transforming Designs into Reality",
+    title: "Branding",
     subTitle:
-      "Our skilled craftsmen bring precision and excellence to every construction project. From minor installations to substantial structural work, ScrewFast offers reliable construction services to turn your plans into tangible outcomes. We ensure the highest standards of safety and workmanship, utilizing top-quality tools and materials from our extensive inventory.",
+      "Transitioning heritage brands into their digital future.Creating brand names & logos is merely branding. What we do is transform brands into experiences.The online world requires brands that grow with their followers through constant interaction.",
+    bullets:["Brand Strategy", "Rebranding","Brand Guidelines & Positioning", "Brand Storytelling", "Graphic Design"],
     img: beforeAfter,
     imgAlt: "Construction site before and after",
-    btnExists: true,
-    btnTitle: "Learn More",
-    btnURL: "#",
+   
   },
   {
     isRightSection: true,
-    title: "Navigating Projects with Professional Oversight",
+    title: "UI Design",
     subTitle:
-      "Effective project management is at the heart of any successful build. ScrewFast provides thorough planning and robust management services that keep your project on time and within budget. Let us handle the complexities of workflow coordination, resource allocation, and stakeholder communication while you focus on your vision.",
+      "The wow factor in tailor-made UI design. Harnessing the full power of nowadays technology & trends, we create highly bespoke websites and apps that are content-manageable to suit your exact requirements.",
+    bullets:["Website Conception", "Responsive Web Design", "UI UX", "Mobile App Prototyping"],
     single: false,
     imgOne: constructionWorkers,
     imgOneAlt: "Construction workers orchestrating a project",
@@ -69,26 +72,28 @@ const articles: Article[] = [
   },
   {
     isRightSection: false,
-    title: "Ensuring Long-lasting Performance",
+    title: "Development",
     subTitle:
-      "Our commitment to your project doesn't end at completion. ScrewFast offers ongoing maintenance and support services to ensure your construction's longevity and performance. From regular check-ups to emergency assistance, our responsive team is there to provide seamless support.",
+      "Code that beats & bites from the inside out. Anyone can put together some lines of code. We do more. By planning, designing and developing with end-users",
+    content: "We dedicate our full attention to writing each line of code in-house, which is proof of a well-defined methodology and unique thinking. Our development services form quality websites, modern e-commerce platforms, unique web platforms and Andoird and IOS Apps. By working with cutting-edge technologies, our developers continually advance their skills and follow current digital trends.",
+    bullets:["Website Development", "Custom Web Development", "E-Commerce Development", "Analytics & Tag Manager Implementation", "Cross Platform Mobile App Development"],
     img: usingTools,
     imgAlt:
       "Man in orange and black vest wearing white helmet holding yellow and black power tool",
   },
   {
     isRightSection: true,
-    title: "Crafting Bespoke Strategies for Unique Challenges",
+    title: "Digital Marketing",
     subTitle:
-      "For our larger enterprise clients, ScrewFast offers custom solutions designed to meet specific industry challenges. By understanding your unique needs, we engineer tailored strategies aimed at optimizing your operations, enhancing efficiency, and driving your business forward.",
+      "Stand out in the white noise of digital.Digital Marketing is a critical success factor in any Marketing Strategy. How you market your digital presence is not just about having a slogan posted on websites or in advertising media, it’s creating content that stands out in the white noise of the online vastness.",
+    bullets: ["Digital Marketing Strategy", "Digital PR", "Social Media Management", "Paid Advertising (PPC)", "Content Marketing & SEO", "Email Marketing"],
     single: false,
     imgOne: progressBuilding,
     imgOneAlt: "In progress building structure",
     imgTwo: underConstruction,
     imgTwoAlt: "Brown and gray building under construction",
-    btnExists: true,
-    btnTitle: "Read more",
-    btnURL: "#",
+    btnExists: false,
+
   },
 ];
 
@@ -100,15 +105,15 @@ const pageTitle: string = `Services | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/services",
-    "url": "https://screwfast.uk/services",
-    "name": "Expert Consultation Services | ScrewFast",
+    "@id": "https://codestreethive.com/services",
+    "url": "https://codestreethive.com/services",
+    "name": "Creative Digital Agency | CodeStreetHive",
     "description": "Uniting expertise with your vision, ScrewFast provides exceptional service and comprehensive solutions in the hardware and construction industry, from consultation to project completion.",
     "isPartOf": {
         "@type": "WebSite",
-        "url": "https://screwfast.uk",
-        "name": "ScrewFast",
-        "description": "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs."
+        "url": "https://codestreethive.com/",
+        "name": "CodeStreetHive",
+        "description": "CodeStreetHive offers a creative solutions and services to meet all your project needs."
     },
     "inLanguage": "en-US"
   }}
@@ -116,10 +121,10 @@ const pageTitle: string = `Services | ${SITE.title}`;
   <!--MainSection is the introductory section of the page, it also contains a CTA button-->
   <MainSection
     title="Uniting Expertise with Your Vision"
-    subTitle="At ScrewFast, we take pride in providing comprehensive solutions and exceptional service in the hardware and construction industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
+    subTitle="At CodeStreetHive, we take pride in providing comprehensive solutions and exceptional service in the digital industry. Our experienced team is dedicated to supporting your project from inception to completion with a range of specialized services."
     btnExists={true}
     btnTitle="Schedule a Consultation"
-    btnURL="#"
+    btnURL="/contact"
   />
   <!-- RightSection and LeftSection contain details about various services along with pertinent imagery.
   They alternate for variety in design.
@@ -135,6 +140,8 @@ const pageTitle: string = `Services | ${SITE.title}`;
         <RightSection
           title={article.title}
           subTitle={article.subTitle}
+          content={article.content}
+          bullets={article.bullets}
           single={article.single}
           imgOne={article.imgOne}
           imgOneAlt={article.imgOneAlt}
@@ -148,6 +155,8 @@ const pageTitle: string = `Services | ${SITE.title}`;
         <LeftSection
           title={article.title}
           subTitle={article.subTitle}
+          content={article.content}
+          bullets={article.bullets}
           img={article.img}
           imgAlt={article.imgAlt}
           btnExists={article.btnExists}
@@ -160,17 +169,17 @@ const pageTitle: string = `Services | ${SITE.title}`;
   <!--FeaturesStats section showcases essential stats valuable to users-->
   <FeaturesStats
     title="By the Numbers"
-    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At ScrewFast, we are dedicated to delivering industry-leading services that ensure your construction projects are built to last."
+    subTitle="Our commitment to quality and reliability is evident in every project we undertake. At CodeStreetHive, we are dedicated to delivering industry-leading services that ensure your visions are built to last."
     mainStatTitle="96%"
-    mainStatSubTitle="of our clients rate their experience with ScrewFast as exceptional"
+    mainStatSubTitle="of our clients rate their experience with CodeStreetHive as exceptional"
     stats={[
       {
         stat: "99.8%",
         description: "project completion rate",
       },
       {
-        stat: "5,000+",
-        description: "successful installations",
+        stat: "30+",
+        description: "successful launches",
       },
       {
         stat: "85%",

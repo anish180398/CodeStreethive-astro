@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Discover how CodeStreetHive can transform your ideas into reality with our specialized services.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "What is your approach to MVP development?",
+      "answer": "At CodeStreetHive, we adopt a 'fail-fast' approach to MVP development. This ensures rapid iteration and validation of your idea within 12 to 15 weeks. We focus on delivering a functional, market-ready product while minimizing risks."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "How can CodeStreetHive help with branding?",
+      "answer": "Our branding services are designed to craft a unique identity for your business. From logo design to messaging and visual guidelines, we ensure your brand stands out and resonates with your target audience."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "What technologies do you use for full-stack development?",
+      "answer": "We specialize in modern full-stack development, leveraging technologies like React, Node.js, Python, and cloud platforms to deliver scalable and high-performing web and mobile applications tailored to your needs."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "How does CodeStreetHive approach digital marketing?",
+      "answer": "Our digital marketing strategies are data-driven and customized for your business goals. We focus on SEO, social media marketing, content creation, and PPC campaigns to maximize your online presence and engagement."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "What is included in your digital transformation services?",
+      "answer": "We guide businesses through digital transformation by integrating advanced technologies, optimizing workflows, and modernizing legacy systems. Our goal is to enhance efficiency and help you stay competitive in the digital age."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "Can you explain your 'fail-fast' methodology in more detail?",
+      "answer": "Certainly! The 'fail-fast' methodology focuses on quickly prototyping and testing key features of your MVP. By iterating rapidly, we identify what works and what doesn’t early in the process, saving time and resources while ensuring a robust final product."
     }
   ]
 }

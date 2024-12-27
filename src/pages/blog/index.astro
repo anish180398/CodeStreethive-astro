@@ -30,12 +30,12 @@ const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
 const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
 
 // Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+const title: string = "Where Ideas Ignite and Brands Evolve";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  "Explore the latest news, tips, and insights from CodeStreetHive to get in sync with the digital world. From product spotlights to project management strategies, our blog is your go-to resource for all things digital and business.";
+const secondTitle: string = "Case Studies";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  "Look how we approach and solve the customer problems";
 
 const pageTitle: string = `Blog | ${SITE.title}`;
 ---
@@ -45,17 +45,17 @@ const pageTitle: string = `Blog | ${SITE.title}`;
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
+    "@id": "https:codestreethive.com/blog",
+    url: "https:codestreethive.com/blog",
     name: "Blog | ScrewFast",
     description:
       "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
+      url: "https://codestreethive.com",
+      name: "CodeStreetHive",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "CodeStreetHive offers creative solutions and services to meet all your project needs.",
     },
     inLanguage: "en-US",
   }}
