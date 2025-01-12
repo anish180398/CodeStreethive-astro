@@ -11,7 +11,7 @@ export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://CodeStreetHive.uk",
   image: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com","images.ctfassets.net"],
   },
   // i18n: {
   //   defaultLocale: "en",
