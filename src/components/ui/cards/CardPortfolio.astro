@@ -19,16 +19,17 @@ interface Props {
   <!-- The container for the portfolio post's cover image. Uses astro:assets' Image for image source -->
   <div
     class="relative h-[350px] w-full flex-shrink-0 overflow-hidden rounded-xl before:absolute before:inset-x-0 before:z-[1] before:size-full before:bg-gradient-to-t before:from-neutral-900/[.7]">
-    <Image
+   {portfolioEntry?.fields?.coverImage?.fields?.file?.url && <Image
       class="absolute start-0 top-0 size-full object-cover transition duration-500 group-hover:scale-110"
-      src={portfolioEntry.fields.coverImage.fields.file.url}
-      alt={portfolioEntry.fields.title || ""}
+      src={portfolioEntry?.fields?.coverImage?.fields?.file?.url}
+      alt={portfolioEntry?.fields?.title || ""}
       draggable={"false"}
       loading={"eager"}
-      format={"avif"}
-      width={1080}
-      height={600}
-    />
+        format={"avif"}
+        width={1080}
+        height={600}
+      />
+    }
   </div>
 
   <!-- The container for the portfolio post's title and description -->
@@ -36,7 +37,7 @@ interface Props {
     <div class="flex h-full flex-col px-4 py-2 sm:px-6">
       <h3
         class="text-balance text-lg font-bold text-neutral-800 group-hover:text-neutral-50/[.8] dark:text-neutral-50 sm:text-3xl">
-        {portfolioEntry.fields.title}
+        {portfolioEntry?.fields?.title}
       </h3>
       <!-- <p class="mt-2 text-pretty text-neutral-800 dark:text-neutral-50">
         {portfolioEntry.fields.excerpt}
@@ -44,8 +45,8 @@ interface Props {
     </div>
     <div class="flex flex-row gap-2 px-4 sm:px-6">
       {
-        portfolioEntry.fields.tags &&
-          portfolioEntry.fields.tags.map((tag: string) => (
+        portfolioEntry?.fields?.tags &&
+            portfolioEntry?.fields?.tags?.map((tag: string) => (
             <span class="rounded-md bg-neutral-900 px-2 text-sm text-neutral-300 dark:text-neutral-400">
               {tag}
             </span>
