@@ -62,7 +62,7 @@ const pageTitle: string = `${post.fields.title} | ${SITE.title}`;
               [BLOCKS.QUOTE]: (node, next) =>
                 `<blockquote class="border-l-4 border-gray-300 pl-4 italic text-neutral-700 dark:text-neutral-300">${next(node.content)}</blockquote>`,
               [BLOCKS.EMBEDDED_ASSET]: (node, next) =>
-                `<img src="https:${node.data.target.fields.file.url}" alt="${post.fields.title}" class="" loading="lazy" />`,
+                `<img src="https:${node.data.target.fields.file.url}" alt="${post.fields.title}" class="" loading="eager" />`,
             },
             renderMark: {
               [MARKS.BOLD]: (text) => `<strong>${text}</strong>`,
