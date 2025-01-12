@@ -3,12 +3,11 @@
 import AvatarBlog from "@components/ui/avatars/AvatarBlog.astro";
 import { Image } from "astro:assets";
 import { formatDate } from "@utils/utils";
-import type { CollectionEntry } from "astro:content";
 
 const { blogEntry, blogLocale = "" } = Astro.props;
 
 interface Props {
-  blogEntry: CollectionEntry<"blog">;
+  blogEntry: any;
   blogLocale?: string;
 }
 ---
@@ -20,8 +19,8 @@ interface Props {
 <a
   class="group relative block rounded-xl outline-none ring-zinc-500 transition duration-500 focus-visible:ring dark:ring-zinc-200 dark:focus:outline-none"
   href={blogLocale && blogLocale !== "en"
-    ? `/${blogLocale}/blog/${blogEntry.slug.replace(/^fr\//, "")}/`
-    : `/blog/${blogEntry.slug.replace(/^en\//, "")}/`}
+    ? `/${blogLocale}/blog/${blogEntry.fields.slug}/`
+    : `/blog/${blogEntry.fields.slug}/`}
   data-astro-prefetch
 >
   <!-- The container for the blog post's cover image. Uses astro:assets' Image for image source -->
@@ -30,11 +29,13 @@ interface Props {
   >
     <Image
       class="absolute start-0 top-0 size-full object-cover transition duration-500 group-hover:scale-110"
-      src={blogEntry.data.cardImage}
-      alt={blogEntry.data.cardImageAlt}
+      src={blogEntry.fields.coverImage.fields.file.url}
+      alt={blogEntry.fields.title || ''}
       draggable={"false"}
       loading={"eager"}
       format={"avif"}
+      width={1080}
+      height={600}
     />
   </div>
   <!-- The container for the blog author's avatar and associated metadata (author name and publication date) -->
@@ -45,10 +46,10 @@ interface Props {
 
         <div class="ms-2.5 sm:ms-4">
           <h4 class="font-bold text-neutral-50">
-            {blogEntry.data.author}
+            {blogEntry.fields.author}
           </h4>
           <p class="text-xs text-neutral-50/[.8]">
-            {formatDate(blogEntry.data.pubDate)}
+            {formatDate(blogEntry.fields.publishedDate)}
           </p>
         </div>
       </div>
@@ -60,10 +61,10 @@ interface Props {
       <h3
         class="text-balance text-lg font-bold text-neutral-50 group-hover:text-neutral-50/[.8] sm:text-3xl"
       >
-        {blogEntry.data.title}
+        {blogEntry.fields.title}
       </h3>
       <p class="mt-2 text-pretty text-neutral-50/[.8]">
-        {blogEntry.data.description}
+        {blogEntry.fields.excerpt}
       </p>
     </div>
   </div>

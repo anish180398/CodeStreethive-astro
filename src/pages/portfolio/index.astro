@@ -1,0 +1,83 @@
+---
+// Import necessary components, modules and types
+import MainLayout from "@/layouts/MainLayout.astro";
+import CardPortfolio from "@components/ui/cards/CardPortfolio.astro";
+import { SITE } from "@data/constants";
+import { contentfulClient } from "@/lib/contentful";
+import type { EntryFieldTypes } from "contentful";
+
+interface PortfolioPost {
+  contentTypeId: "portfolios";
+  fields: {
+    title: EntryFieldTypes.Text;
+    slug: EntryFieldTypes.Symbol;
+    excerpt: EntryFieldTypes.Text;
+    coverImage: EntryFieldTypes.AssetLink;
+    tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+    body: EntryFieldTypes.RichText;
+  };
+}
+
+const portfolios = await contentfulClient.getEntries<PortfolioPost>({
+  content_type: "portfolios",
+});
+
+const portfolioList = portfolios.items.map((post) => ({
+  fields: post.fields,
+  sys: post.sys,
+}));
+
+// Define variables for page content
+const title: string = "Where Ideas Ignite and Brands Evolve";
+const subTitle: string =
+  "Explore the latest news, tips, and insights from CodeStreetHive to get in sync with the digital world. From product spotlights to project management strategies, our blog is your go-to resource for all things digital and business.";
+
+const pageTitle: string = `Portfolio | ${SITE.title}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https:codestreethive.com/portfolio",
+    url: "https:codestreethive.com/portfolio",
+    name: "Portfolio | CodeStreetHive",
+    description:
+      "Stay up-to-date with the latest trends and developments in the construction industry with insights from CodeStreetHive's team of industry experts.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://codestreethive.com",
+      name: "CodeStreetHive",
+      description:
+        "CodeStreetHive offers creative solutions and services to meet all your project needs.",
+    },
+    inLanguage: "en-US",
+  }}>
+  <section
+    class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full">
+    <!--Page header-->
+    <div class="mx-auto max-w-3xl text-left sm:text-center">
+      <h1
+        class="block text-balance text-4xl font-bold tracking-tight text-neutral-800 dark:text-neutral-200 md:text-5xl lg:text-6xl">
+        {title}
+      </h1>
+
+      <p
+        class="mt-4 text-pretty text-lg text-neutral-600 dark:text-neutral-400">
+        {subTitle}
+      </p>
+    </div>
+  </section>
+  <section
+    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full">
+    <!--Blog posts grid-->
+    <div class="grid gap-8 lg:grid-cols-2">
+      {
+        portfolioList.map((postEntry) => (
+          <CardPortfolio portfolioEntry={postEntry} />
+        ))
+      }
+    </div>
+  </section>
+</MainLayout>

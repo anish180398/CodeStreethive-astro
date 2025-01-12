@@ -1,7 +1,7 @@
 // An array of links for navigation bar
 const navBarLinks = [
   { name: "Home", url: "/" },
-  // { name: "Products", url: "/products" },
+  { name: "Porfolio", url: "/portfolio" },
   { name: "Services", url: "/services" },
   { name: "Blog", url: "/blog" },
   { name: "Contact", url: "/contact" },
@@ -22,6 +22,7 @@ const footerLinks = [
       // { name: "About us", url: "#" },
       { name: "Blog", url: "/blog" },
       { name: "Services", url: "/services" },
+      { name: "Portfolio", url: "/portfolio" },
 
       // { name: "Careers", url: "#" },
       // { name: "Customers", url: "#" },
@@ -32,7 +33,7 @@ const footerLinks = [
 const socialLinks = {
   facebook: "https://www.facebook.com/",
   x: "https://twitter.com/",
-  github: "https://github.com/mearashadowfax/ScrewFast",
+  github: "https://github.com/mearashadowfax/CodeStreetHive",
   google: "https://www.google.com/",
   slack: "https://slack.com/",
 };

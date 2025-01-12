@@ -7,27 +7,44 @@ import CardInsight from "@components/ui/cards/CardInsight.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
+import { contentfulClient } from "@/lib/contentful";
+import { documentToHtmlString } from "@contentful/rich-text-html-renderer";
+import type { EntryFieldTypes } from "contentful";
 
-// Get all blogs post in English and sort them based on publish date
+interface BlogPost {
+  contentTypeId: "blogs",
+  fields: {
+    title: EntryFieldTypes.Text,
+    slug: EntryFieldTypes.Symbol,
+    excerpt: EntryFieldTypes.Text,
+    coverImage: EntryFieldTypes.AssetLink,
+    publishedDate: EntryFieldTypes.Date,
+    author: EntryFieldTypes.Symbol,
+    tags: EntryFieldTypes.Array<EntryFieldTypes.Symbol>,
+    body: EntryFieldTypes.RichText,
+  }
+}
 
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
+const englishBlogEntries = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blogs",
+});
+
+const englishInsightsEntries = await getCollection("insights", ({ id }: { id: string }) => {
   return id.startsWith("en/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
-});
-
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
-  (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-    b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+const blogPosts = englishBlogEntries.items.sort(
+  (a, b) => new Date(b.fields.publishedDate).valueOf() - new Date(a.fields.publishedDate).valueOf()
 );
 // Get all insights posts
 const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
 // Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const mostRecentPost = blogPosts[0];
+const otherPosts = blogPosts.slice(1).map(post => ({
+  fields: post.fields,
+  sys: post.sys
+}));
 
 // Define variables for page content
 const title: string = "Where Ideas Ignite and Brands Evolve";
@@ -47,9 +64,9 @@ const pageTitle: string = `Blog | ${SITE.title}`;
     "@type": "WebPage",
     "@id": "https:codestreethive.com/blog",
     url: "https:codestreethive.com/blog",
-    name: "Blog | ScrewFast",
+    name: "Blog | CodeStreetHive",
     description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
+      "Stay up-to-date with the latest trends and developments in the construction industry with insights from CodeStreetHive's team of industry experts.",
     isPartOf: {
       "@type": "WebSite",
       url: "https://codestreethive.com",
@@ -78,7 +95,6 @@ const pageTitle: string = `Blog | ${SITE.title}`;
       </p>
     </div>
   </section>
-
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
