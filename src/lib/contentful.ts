@@ -14,16 +14,14 @@ export const renderRichTextToHtml = (richText: any) => {
   const options = {
     renderNode: {
       [BLOCKS.EMBEDDED_ASSET]: (node: any) => {
-        console.log('Asset node:', node.data.target);
         // In Contentful, the image URL might be nested differently
         const url = node.data.target.fields.file?.url;
         if (!url) {
-          console.log('No URL found in asset');
-          return '';
+          return "";
         }
         // Make sure to add https: if the URL starts with //
-        const fullUrl = url.startsWith('//') ? `https:${url}` : url;
-        return `<img src="${fullUrl}" alt="${node.data.target.fields.description || ''}" class="my-4 rounded-lg" />`;
+        const fullUrl = url.startsWith("//") ? `https:${url}` : url;
+        return `<img src="${fullUrl}" alt="${node.data.target.fields.description || ""}" class="my-4 rounded-lg" />`;
       },
     },
   };

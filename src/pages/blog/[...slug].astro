@@ -73,7 +73,6 @@ const pageTitle: string = `${post.fields.title} | ${SITE.title}`;
         {post.fields.title}
       </h2>
       <div class="mb-5 space-y-5 md:mb-8 md:space-y-8">
-        {console.log('Rich Text Body:', JSON.stringify(post.fields.body, null, 2))}
         
         <Fragment set:html={documentToHtmlString(post?.fields.body as any, {
           renderNode: {
@@ -94,11 +93,9 @@ const pageTitle: string = `${post.fields.title} | ${SITE.title}`;
             [BLOCKS.QUOTE]: (node, next) =>
               `<blockquote class="border-l-4 border-gray-300 pl-4 italic text-neutral-700 dark:text-neutral-300">${next(node.content)}</blockquote>`,
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
-              console.log('Embedded Asset Node:', JSON.stringify(node, null, 2));
               
               // Handle potential undefined data
               if (!node.data?.target?.fields) {
-                console.log('Missing image data');
                 return '';
               }
 
