@@ -69,10 +69,7 @@ const pageTitle: string = `${post.fields.title} | ${SITE.title}`;
             [MARKS.ITALIC]: (text) => `<em>${text}</em>`,
             [MARKS.CODE]: (text) => `<code class="bg-gray-100 dark:bg-gray-800 rounded px-1">${text}</code>`,
           },
-          marks: {
-            [INLINES.HYPERLINK]: (node: { data: { uri: any; }; content: any; }, next: (arg0: any) => any) =>
-              `<a href="${node.data.uri}" class="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">${next(node.content)}</a>`,
-          },
+         
         })} />
       </div>
       
