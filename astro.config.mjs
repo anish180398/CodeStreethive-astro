@@ -9,7 +9,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://CodeStreetHive.uk",
+  site: "https://CodeStreetHive.com",
   image: {
     domains: ["images.unsplash.com","images.ctfassets.net"],
   },
