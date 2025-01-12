@@ -3,7 +3,7 @@
 import { Image } from "astro:assets";
 import IconBlock from "@components/ui/blocks/IconBlock.astro";
 import Icon from "@components/ui/icons/Icon.astro";
-import styles from "../../../assets/styles/ShakeAnimation.module.css"
+import styles from "../../../assets/styles/ShakeAnimation.module.css";
 interface Feature {
   heading: string;
   content: string;
@@ -27,24 +27,29 @@ const { title, subTitle, src, alt, features } = Astro.props;
   <div class="relative mb-6 overflow-hidden md:mb-8">
     {
       src && alt && (
-        <div class="flex w-full items-center ">
+        <div class="flex w-full flex-col-reverse items-center md:flex-row">
           {" "}
           <Image
             src={src}
             alt={alt}
-            class={`h-full w-1/2 object-cover object-center ${styles["shake-up-down"]}`}
+            class={`h-full object-cover object-center md:w-1/2 ${styles["shake-up-down"]}`}
             draggable={"false"}
             format={"png"}
             loading={"eager"}
           />
-          <div class="w-1/2 text-neutral-800 dark:text-neutral-200" >
-            <h2 class="uppercase text-7xl font-medium tracking-wider leading-12">
-              See in <span class="text-yellow-400">Vision</span> & Talk in <span class="text-orange-300">results</span>
+          <div class="w-full text-neutral-800 dark:text-neutral-200 md:w-1/2">
+            <h2 class="leading-12 w-full text-2xl font-medium uppercase tracking-wider md:text-7xl">
+              See in <span class="text-yellow-400">Vision</span> & Talk in{" "}
+              <span class="text-orange-300">results</span>
             </h2>
-            <p class="my-5 tracking-normal text-xl">
-              Perfect over done. Curiosity over routine. Visions over strategy. Simplicity over special effects. fans over target groups. Less over more. Value over price. Long-lasting over short-hyped. Time-efficiency over bla bla. Partner over supplier. Make over talk.
+            <p class="text-md my-5 tracking-normal text-neutral-800 dark:text-neutral-400 md:text-xl">
+              Perfect over done. Curiosity over routine. Visions over strategy.
+              Simplicity over special effects. fans over target groups. Less
+              over more. Value over price. Long-lasting over short-hyped.
+              Time-efficiency over bla bla. Partner over supplier. Make over
+              talk.
             </p>
-             </div>
+          </div>
         </div>
       )
     }
