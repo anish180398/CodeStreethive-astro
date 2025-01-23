@@ -8,10 +8,11 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://CodeStreetHive.com",
   image: {
-    domains: ["images.unsplash.com","images.ctfassets.net"],
+    domains: ["images.unsplash.com", "images.ctfassets.net"],
   },
   // i18n: {
   //   defaultLocale: "en",
