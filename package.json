@@ -16,6 +16,7 @@
     "@astrojs/starlight": "^0.28.6",
     "@astrojs/starlight-tailwind": "^2.0.3",
     "@astrojs/tailwind": "^5.1.2",
+    "@astrojs/vercel": "^8.0.4",
     "@contentful/rich-text-html-renderer": "^17.0.0",
     "@contentful/rich-text-types": "^17.0.0",
     "@preline/accordion": "^2.5.0",

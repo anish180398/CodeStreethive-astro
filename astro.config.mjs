@@ -3,12 +3,14 @@ import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
+import vercel from "@astrojs/vercel/serverless";
 
 import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
   output: "server",
+  adapter: vercel(),
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://CodeStreetHive.com",
   image: {
