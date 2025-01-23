@@ -1,17 +1,19 @@
 import { defineConfig } from "astro/config";
+import vercel from "@astrojs/vercel/serverless";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import compressor from "astro-compressor";
 import starlight from "@astrojs/starlight";
-
 import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  adapter: vercel(),
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://CodeStreetHive.com",
   image: {
-    domains: ["images.unsplash.com","images.ctfassets.net"],
+    domains: ["images.unsplash.com", "images.ctfassets.net"],
   },
   // i18n: {
   //   defaultLocale: "en",
